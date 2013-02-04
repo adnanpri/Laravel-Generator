@@ -652,7 +652,11 @@ EOT;
 
     protected function add_option($option)
     {
-        return "->{$option}()";
+        $options = explode('-', $option);
+        if(is_array($options))
+            return "->{$options[0]}({$options[1]})";
+        else
+            return "->{$option}()";
     }
 
 
